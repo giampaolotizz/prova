@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import '~bootstrap/dist/css/bootstrap.min.css';*/
+.card{
+    border-radius: 7px;
+}
+
+*{
+  font-family: "Lato", sans-serif;
+}
+
+button{
+    background-color: #27d8ca;
+}
