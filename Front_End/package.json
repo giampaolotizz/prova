@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
 	"prestart": "npm install",
-    "start": "ng serve",
+    "start": "npm start",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
