@@ -20,6 +20,8 @@ COPY . .
 RUN npm run build:ssr
 
 ### STAGE 2: Run ###
+RUN npm install
+
 FROM nginxinc/nginx-unprivileged
 
 #### copy nginx conf
