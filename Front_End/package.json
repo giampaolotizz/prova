@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "npx ng serve --host 0.0.0.0 --poll=500",
     "build": "npx ng build --prod demo",
-    "build:ssr": "ng build --prod vitorspace && ng run vitorspace:server:production"
+    "build:ssr": "ng build --prod vitorspace && ng run vitorspace:server:production",
     "test": "npx ng test --browsers=ChromeHeadless",
     "lint": "npx ng lint",
     "e2e": "npx ng e2e"
