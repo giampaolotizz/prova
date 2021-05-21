@@ -1,11 +1,15 @@
 # Stage 1 
-FROM node:10-alpine as build-step 
-RUN mkdir -p /app 
+FROM node:alpine as EventXFront 
 WORKDIR /app 
-COPY package.json /app 
-RUN npm install 
-COPY . /app 
-RUN npm run build --prod  
+COPY package.json package-lock.json ./ 
+RUN npm ci
+COPY . .
+RUN npm run build -- --prod  
 # Stage 2 
-FROM nginx:1.17.1-alpine 
-COPY --from=build-step /app/docs /usr/share/nginx/html
+
+FROM bitnami/nginx
+RUN chgrp -R root /var/cache/nginx /var/run /var/log/nginx && \ chmod -R 777 /var
+RUN npm install
+COPY --from=EventXFront /app/dist/EventX /usr/share/nginx/html
+RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
+
