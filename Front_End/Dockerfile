@@ -1,7 +1,12 @@
-FROM node:12.9.0-alpine
-WORKDIR '/app'
-COPY package.json .
-RUN npm install
+# stage 1
+
+FROM node:alpine AS my-app-build
+WORKDIR /app
 COPY . .
-EXPOSE 4200
-CMD ["npm", "start"]
+RUN npm ci && npm run build
+
+# stage 2
+
+FROM nginx:alpine
+COPY --from=my-app-build /app/dist/app-to-run-inside-docker /usr/share/nginx/html
+EXPOSE 80
