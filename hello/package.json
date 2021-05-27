@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "prestart" : "npm install",
-    "prestart" : "npm install jquery"
-    "prestart" : "npm install jsdom"
+    "prestart" : "npm install jquery",
+    "prestart" : "npm install jsdom",
     "start": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
