@@ -3,7 +3,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-RUN npm run build -- --prod
+RUN ng serve
+Run npm start
 
 # stage 2
 
